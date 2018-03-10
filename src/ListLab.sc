@@ -210,19 +210,18 @@ object ListLab {
   countPassAny(List(5, 20, 15, 55), (x: Int) => x % 5 == 0)
                                                   //> res40: Boolean = true
   // Problem 8b
-  def countPassAnyRecur[T](list: List[T], f: T => Boolean): Boolean = {
+ 	def countPassAnyRecur[T](list: List[T], f: T => Boolean): Boolean = {
   	if(list == Nil) false
   	else if(f(list.head)) true
-  	else countPassAllRecur(list.tail, f)
-  }                                               //> countPassAnyRecur: [T](list: List[T], f: T => Boolean)Boolean
-  
+  	else countPassAnyRecur(list.tail, f)
+	}                                         //> countPassAnyRecur: [T](list: List[T], f: T => Boolean)Boolean
   
   countPassAnyRecur(List(false, true, false, "test", 4, 532, false, "hydra", true), (x : Any) => x.isInstanceOf[Boolean])
                                                   //> res41: Boolean = true
   countPassAnyRecur(List(false, true, false, false), (x : Any) => x.isInstanceOf[Boolean])
                                                   //> res42: Boolean = true
   countPassAnyRecur(List(42, 3, 5, 23), (x: Int) => x / 5 == 1)
-                                                  //> res43: Boolean = false
+                                                  //> res43: Boolean = true
   
   countPassAnyRecur(List(42, "test", 5 + 3, "Baneling"), (x : Any) => x.isInstanceOf[Boolean])
                                                   //> res44: Boolean = false
@@ -302,14 +301,5 @@ object ListLab {
 		= poly.head._1 * math.pow(poly.head._2, x)
                                                   //> evalPoly: (poly: List[(Double, Double)], x: Double)Double
   evalPoly(List((3.0,2.0), (-5.0, 0.0)), 4)       //> res57: Double = 48.0
-  
-  
-  
-  
-  
-  
-  
-  
-  
   
 }

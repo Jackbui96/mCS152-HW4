@@ -169,14 +169,13 @@ object ListLab {;import org.scalaide.worksheet.runtime.library.WorksheetSupport.
   countPassAny(List(42, "test", 5 + 3, "Baneling"), (x : Any) => x.isInstanceOf[Boolean]);System.out.println("""res38: Boolean = """ + $show(res$38));$skip(59); val res$39 = 
   countPassAny(List(42, 3, 5, 23), (x: Int) => x / 5 == 1);System.out.println("""res39: Boolean = """ + $show(res$39));$skip(63); val res$40 = 
   
-  countPassAny(List(5, 20, 15, 55), (x: Int) => x % 5 == 0);System.out.println("""res40: Boolean = """ + $show(res$40));$skip(187); 
+  countPassAny(List(5, 20, 15, 55), (x: Int) => x % 5 == 0);System.out.println("""res40: Boolean = """ + $show(res$40));$skip(186); 
   // Problem 8b
-  def countPassAnyRecur[T](list: List[T], f: T => Boolean): Boolean = {
+ 	def countPassAnyRecur[T](list: List[T], f: T => Boolean): Boolean = {
   	if(list == Nil) false
   	else if(f(list.head)) true
-  	else countPassAllRecur(list.tail, f)
-  };System.out.println("""countPassAnyRecur: [T](list: List[T], f: T => Boolean)Boolean""");$skip(128); val res$41 = 
-  
+  	else countPassAnyRecur(list.tail, f)
+	};System.out.println("""countPassAnyRecur: [T](list: List[T], f: T => Boolean)Boolean""");$skip(125); val res$41 = 
   
   countPassAnyRecur(List(false, true, false, "test", 4, 532, false, "hydra", true), (x : Any) => x.isInstanceOf[Boolean]);System.out.println("""res41: Boolean = """ + $show(res$41));$skip(91); val res$42 = 
   countPassAnyRecur(List(false, true, false, false), (x : Any) => x.isInstanceOf[Boolean]);System.out.println("""res42: Boolean = """ + $show(res$42));$skip(64); val res$43 = 
@@ -241,14 +240,5 @@ object ListLab {;import org.scalaide.worksheet.runtime.library.WorksheetSupport.
 	def evalPoly(poly: List[(Double, Double)], x: Double): Double
 		= poly.head._1 * math.pow(poly.head._2, x);System.out.println("""evalPoly: (poly: List[(Double, Double)], x: Double)Double""");$skip(44); val res$57 = 
   evalPoly(List((3.0,2.0), (-5.0, 0.0)), 4);System.out.println("""res57: Double = """ + $show(res$57))}
-  
-  
-  
-  
-  
-  
-  
-  
-  
   
 }
